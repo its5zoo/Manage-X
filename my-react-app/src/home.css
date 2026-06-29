@@ -1,0 +1,249 @@
+/* ============================================
+   home.css — Dark Cinematic Home Background (FIXED)
+============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================
+   HOME WRAPPER
+============================ */
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 24px 80px;
+
+  font-family: 'Inter', sans-serif;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================
+   BACKGROUND IMAGE LAYER
+   (FIXED - SINGLE BEFORE ONLY)
+============================ */
+
+.home-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1800&q=80");  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* DARK CINEMATIC LOOK */
+  filter: brightness(0.45) contrast(1.25) saturate(1.1);
+  transform: scale(1.05);
+}
+
+/* ============================
+   DARK OVERLAY + CINEMATIC GLOW
+============================ */
+
+.home-container::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(79,142,255,0.18), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(168,85,247,0.15), transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(0,210,255,0.10), transparent 55%),
+    rgba(0, 0, 0, 0.45);
+}
+
+/* ============================
+   HERO CARD
+============================ */
+
+.hero-content {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  padding: 60px 48px;
+  border-radius: 28px;
+
+  background: rgba(10, 14, 25, 0.42);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(79, 142, 255, 0.16);
+
+  box-shadow:
+    0 12px 50px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  animation: fadeUp 0.9s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================
+   HERO TITLE
+============================ */
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #f0f4ff;
+  margin-bottom: 22px;
+
+  animation: floatText 4s ease-in-out infinite;
+}
+
+@keyframes floatText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ============================
+   SUBTITLE
+============================ */
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #b8c7e0;
+  margin-bottom: 36px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================
+   SERVICES
+============================ */
+
+.services-text {
+  margin: 36px 0;
+}
+
+.services-text h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4f8eff;
+  margin-bottom: 22px;
+}
+
+.services-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.services-text li {
+  font-size: 1.05rem;
+  color: #c8d4f0;
+
+  padding: 14px 22px;
+  border-radius: 12px;
+
+  background: rgba(79, 142, 255, 0.06);
+  border: 1px solid rgba(79, 142, 255, 0.12);
+
+  transition: all 0.22s ease;
+  text-align: left;
+}
+
+.services-text li:hover {
+  transform: translateX(6px);
+  background: rgba(79, 142, 255, 0.12);
+  border-color: rgba(79, 142, 255, 0.3);
+  color: #f0f4ff;
+}
+
+/* ============================
+   BUTTONS
+============================ */
+
+.hero-buttons {
+  margin-top: 36px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-buttons button {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 999px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.28s ease;
+}
+
+.hero-buttons button:first-child {
+  background: linear-gradient(135deg, #4f8eff, #7c3aed);
+  color: white;
+  box-shadow: 0 6px 22px rgba(79, 142, 255, 0.35);
+}
+
+.hero-buttons button:first-child:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(79, 142, 255, 0.5);
+}
+
+.hero-buttons button:last-child {
+  background: transparent;
+  color: #7faaff;
+  border: 1px solid rgba(79, 142, 255, 0.35);
+}
+
+.hero-buttons button:last-child:hover {
+  background: rgba(79, 142, 255, 0.08);
+  border-color: rgba(79, 142, 255, 0.6);
+  transform: translateY(-3px);
+}
+
+/* ============================
+   BOTTOM TEXT
+============================ */
+
+.home-bottom-text {
+  margin-top: 64px;
+  text-align: center;
+  max-width: 720px;
+  padding: 0 20px;
+}
+
+.home-bottom-text h2 {
+  font-size: 1.8rem;
+  color: #f0f4ff;
+  margin-bottom: 16px;
+}
+
+.home-bottom-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #b8c7e0;
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+
+@media (max-width: 768px) {
+  .hero-content { padding: 36px 24px; }
+  .hero-title { font-size: 2rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons button { width: 100%; max-width: 280px; }
+}

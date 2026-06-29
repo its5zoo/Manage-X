@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ============================
+   PAGE BACKGROUND (CLIMATE IMAGE)
+============================ */
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+
+  font-family: 'Inter', sans-serif;
+
+  /* 🌧️ BEAUTIFUL CLIMATE BACKGROUND */
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.70)),
+    url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=80');
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  animation: bgFade 10s ease-in-out infinite alternate;
+}
+
+/* subtle breathing effect */
+@keyframes bgFade {
+  from { filter: brightness(1); }
+  to   { filter: brightness(1.1); }
+}
+
+/* ============================
+   FLOATING BACKGROUND GLOWS
+============================ */
+
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.25;
+  animation: float 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.container::before {
+  width: 280px;
+  height: 280px;
+  background: #00d2ff;
+  top: -100px;
+  left: -80px;
+}
+
+.container::after {
+  width: 220px;
+  height: 220px;
+  background: #9d4edd;
+  bottom: -80px;
+  right: -60px;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+/* keep content above bg */
+.container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================
+   TITLE
+============================ */
+
+.container h1 {
+  color: #f0f4ff;
+  margin-bottom: 24px;
+  font-size: 1.8rem;
+}
+
+/* ============================
+   CARD STYLE ROWS
+============================ */
+
+.container p {
+  width: 100%;
+  max-width: 520px;
+
+  background: rgba(13, 20, 36, 0.75);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(79,142,255,0.16);
+  border-radius: 14px;
+
+  padding: 14px 18px;
+  margin: 10px 0;
+
+  color: #8a9bbf;
+  font-size: 15px;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: 0.3s ease;
+}
+
+/* hover */
+.container p:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(79,142,255,0.18);
+}
+
+/* ============================
+   STRONG TEXT
+============================ */
+
+.container strong {
+  color: #f0f4ff;
+}
+
+/* ============================
+   BACK BUTTON
+============================ */
+
+.back-btn {
+  margin-bottom: 20px;
+  padding: 10px 18px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+
+  color: #f0f4ff;
+  cursor: pointer;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(0,210,255,0.15);
+  box-shadow: 0 10px 25px rgba(0,210,255,0.25);
+}
+
+/* ============================
+   LOADING TEXT
+============================ */
+
+.container h2 {
+  color: #f0f4ff;
+}

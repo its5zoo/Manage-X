@@ -1,0 +1,105 @@
+/* ============================================
+   AddBook.css — Add Book Form
+   ============================================ */
+
+.form-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(124,58,237,0.09) 0%, transparent 65%),
+    var(--bg-base, #080c14);
+  font-family: 'Inter', sans-serif;
+  padding: 40px 20px;
+}
+
+.form-box {
+  position: relative;
+  background: rgba(13, 20, 36, 0.85);
+  backdrop-filter: blur(20px);
+  width: 440px;
+  max-width: 97vw;
+  padding: 44px;
+  border-radius: 24px;
+  border: 1px solid rgba(79,142,255,0.16);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+  overflow: hidden;
+}
+
+/* Top glow line */
+.form-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4f8eff, #a855f7);
+}
+
+/* Decorative emoji faded bg */
+.form-box::after {
+  content: '📚';
+  position: absolute;
+  top: -10px; right: -10px;
+  font-size: 90px;
+  opacity: 0.06;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.form-box h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 28px;
+  color: #f0f4ff;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.form-box input {
+  width: 100%;
+  padding: 13px 16px;
+  margin: 10px 0;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(79,142,255,0.2);
+  border-radius: 10px;
+  color: #f0f4ff;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.26s ease;
+}
+
+.form-box input::placeholder { color: var(--text-muted, #4d5f7a); }
+.form-box input:focus {
+  border-color: rgba(79,142,255,0.55);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 3px rgba(79,142,255,0.12);
+  color: #f0f4ff;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4f8eff, #7c3aed);
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(79,142,255,0.3);
+  transition: all 0.28s ease;
+}
+
+.form-box button:hover { transform: translateY(-3px); box-shadow: 0 8px 26px rgba(79,142,255,0.45); opacity: 0.92; }
+.form-box button:active { transform: scale(0.98); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

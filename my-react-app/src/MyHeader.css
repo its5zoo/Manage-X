@@ -1,0 +1,226 @@
+/* ============================================
+   MyHeader.css — Top Banner + Login/Logout
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+.header {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 48px;
+
+  /* NEW BACKGROUND IMAGE */
+  background: 
+    linear-gradient(rgba(5, 10, 20, 0.45), rgba(5, 10, 20, 0.55)),
+    url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=1920&q=80&utm_source=chatgpt.com");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-bottom: 1px solid rgba(79, 142, 255, 0.18);
+  font-family: 'Space Grotesk', sans-serif;
+  z-index: 100;
+}
+
+/* Animated aurora orbs */
+.header::before {
+  content: '';
+  position: absolute;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(79, 142, 255, 0.12) 0%, transparent 70%);
+  top: -220px; left: -120px;
+  animation: orbDrift1 12s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.10) 0%, transparent 70%);
+  bottom: -160px; right: -80px;
+  animation: orbDrift2 10s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes orbDrift1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(40px, 30px) scale(1.12); }
+}
+@keyframes orbDrift2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-30px, -20px) scale(1.08); }
+}
+
+/* Brand center group */
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Glowing title — keep existing h1 targeting but improve */
+.header h1 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #4f8eff, #a855f7, #4f8eff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite, fadeDown 0.8s ease;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Animated underline on h1 */
+.header h1::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  margin: 8px auto 0;
+  background: linear-gradient(90deg, #4f8eff, #a855f7);
+  border-radius: 99px;
+  animation: lineGrow 1s 0.5s forwards ease;
+}
+
+@keyframes lineGrow {
+  to { width: 200px; }
+}
+
+/* Taglines */
+.header p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(138, 155, 191, 0.85);
+  letter-spacing: 1.5px;
+  margin: 4px 0 0;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Auth buttons wrapper — top-right */
+.header-auth {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 120px;
+  justify-content: flex-end;
+}
+
+/* Logout link (existing .header a) */
+.header a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, rgba(255, 77, 109, 0.12), rgba(255, 77, 109, 0.08));
+  border: 1px solid rgba(255, 77, 109, 0.35);
+  color: #ff6b85 !important;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 99px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.header a::before {
+  content: '⏻';
+  font-size: 13px;
+}
+
+.header a:hover {
+  background: rgba(255, 77, 109, 0.2);
+  border-color: rgba(255, 77, 109, 0.65);
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+  transform: translateY(-2px);
+  color: #ff8099 !important;
+}
+
+.header a:active { transform: scale(0.97); }
+
+/* Login button variant */
+.header-login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, rgba(79, 142, 255, 0.14), rgba(79, 142, 255, 0.08));
+  border: 1px solid rgba(79, 142, 255, 0.35);
+  color: #7faaff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 99px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.header-login-btn:hover {
+  background: rgba(79, 142, 255, 0.22);
+  border-color: rgba(79, 142, 255, 0.6);
+  box-shadow: 0 0 20px rgba(79, 142, 255, 0.28);
+  transform: translateY(-2px);
+  color: #a0c0ff;
+}
+
+/* Spacer for left side symmetry */
+.header-spacer {
+  min-width: 120px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 20px 20px 16px;
+    gap: 14px;
+  }
+  .header h1 { font-size: 1.8rem; letter-spacing: 4px; }
+  .header-auth { justify-content: center; }
+  .header-spacer { display: none; }
+}
+.header p {
+  color: #ffffff !important;
+}

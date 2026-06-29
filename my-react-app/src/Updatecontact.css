@@ -1,0 +1,269 @@
+/* ============================================
+   UpdateContact.css — Premium IRCTC Glass Form
+   (2 Column + Floating Labels + Icons + Animation)
+============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+
+  font-family: 'Poppins', sans-serif;
+
+  background: linear-gradient(
+    135deg,
+    #081120,
+    #102c57,
+    #1a4d8f,
+    #0d1b2a
+  );
+
+  background-size: 400% 400%;
+  animation: bgMove 14s ease infinite;
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* FLOATING ORBS */
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0.35;
+  animation: float 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.container::before {
+  width: 280px;
+  height: 280px;
+  background: #00d2ff;
+  top: -120px;
+  left: -100px;
+}
+
+.container::after {
+  width: 240px;
+  height: 240px;
+  background: #9d4edd;
+  bottom: -100px;
+  right: -80px;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+.container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* TITLE */
+.container h2 {
+  color: #f0f4ff;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+/* ============================
+   FORM (2 COLUMN + GLASS + SHINE)
+============================ */
+
+.container form {
+  width: 100%;
+  max-width: 720px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+
+  padding: 35px;
+  border-radius: 22px;
+
+  background: rgba(13, 20, 36, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(79,142,255,0.16);
+  box-shadow: 0 10px 45px rgba(0,0,0,0.45);
+
+  position: relative;
+  overflow: hidden;
+
+  animation: fadeUp 0.6s ease;
+}
+
+/* GLOSSY SHINE */
+.container form::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.10) 45%,
+    rgba(255,255,255,0.18) 50%,
+    rgba(255,255,255,0.10) 55%,
+    transparent 70%
+  );
+
+  transform: rotate(25deg);
+  animation: shineMove 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shineMove {
+  0% { transform: translateX(-40%) rotate(25deg); }
+  100% { transform: translateX(40%) rotate(25deg); }
+}
+
+/* INPUT GROUP */
+.input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FLOATING LABEL */
+.input-group label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  color: #b8c7e0;
+  font-size: 14px;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+/* INPUTS */
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 18px 14px 12px 14px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+
+  background: rgba(255,255,255,0.08);
+  color: #f0f4ff;
+
+  outline: none;
+  font-size: 14px;
+
+  transition: 0.3s ease;
+}
+
+/* FLOAT LABEL ACTIVE */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  font-size: 12px;
+  color: #00d2ff;
+}
+
+/* FOCUS EFFECT */
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #00d2ff;
+  box-shadow: 0 0 18px rgba(0,210,255,0.25);
+  transform: scale(1.02);
+}
+
+/* TEXTAREA FULL WIDTH */
+.container textarea {
+  grid-column: 1 / -1;
+  min-height: 100px;
+  resize: none;
+}
+
+/* BUTTON FULL WIDTH */
+.container button {
+  grid-column: 1 / -1;
+
+  padding: 14px;
+  border-radius: 12px;
+
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+
+  font-weight: 600;
+  font-size: 15px;
+
+  transition: 0.3s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* BUTTON HOVER */
+.container button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0,114,255,0.35);
+}
+
+/* BUTTON SHINE */
+.container button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.5),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.7s;
+}
+
+.container button:hover::before {
+  left: 160%;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .container form {
+    grid-template-columns: 1fr;
+  }
+
+  .container textarea,
+  .container button {
+    grid-column: auto;
+  }
+}

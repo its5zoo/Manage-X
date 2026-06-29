@@ -1,0 +1,30 @@
+/* App.css — Global Layout Only */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-base);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--text-primary, #f0f4ff);
+  min-height: 100vh;
+  padding-bottom: 0;
+}
+
+/* Footer */
+
+footer {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: var(--font-body);
+}
+
+footer p {
+  margin: 0;
+  color: var(--text-muted);
+}

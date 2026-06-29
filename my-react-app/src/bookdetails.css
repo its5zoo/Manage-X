@@ -1,0 +1,133 @@
+/* ============================================
+   bookdetails.css — Book Details Card
+   ============================================ */
+
+.details-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(ellipse 55% 45% at 60% 40%, rgba(79,142,255,0.09) 0%, transparent 60%),
+    var(--bg-base, #080c14);
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.details-card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(13, 20, 36, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(79,142,255,0.16);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+  text-align: center;
+  transition: transform 0.3s ease;
+  animation: fadeUp 0.6s ease;
+
+  /* NEW: glossy setup */
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================
+   GLOSSY SHINE LAYER (NEW)
+============================ */
+
+.details-card::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.12) 45%,
+    rgba(255,255,255,0.22) 50%,
+    rgba(255,255,255,0.12) 55%,
+    transparent 70%
+  );
+  transform: rotate(25deg);
+  animation: glossyMove 6s linear infinite;
+  pointer-events: none;
+}
+
+/* moving shine */
+@keyframes glossyMove {
+  0% {
+    transform: translateX(-40%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(40%) rotate(25deg);
+  }
+}
+
+/* optional soft top highlight */
+.details-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.08),
+    transparent
+  );
+  pointer-events: none;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.details-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 55px rgba(79,142,255,0.25);
+}
+
+/* TEXT */
+.details-card h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 24px;
+  font-size: 1.6rem;
+  color: #f0f4ff;
+  font-weight: 700;
+}
+
+.details-card p {
+  font-size: 15px;
+  color: var(--text-secondary, #8a9bbf);
+  margin: 12px 0;
+  text-align: left;
+}
+
+.details-card strong { color: #f0f4ff; }
+
+/* BUTTON */
+.details-card button {
+  margin-top: 24px;
+  padding: 12px 24px;
+  border: 1px solid rgba(79,142,255,0.3);
+  border-radius: 10px;
+  background: rgba(79,142,255,0.12);
+  color: #7faaff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.details-card button:hover {
+  background: rgba(79,142,255,0.22);
+  box-shadow: 0 6px 18px rgba(79,142,255,0.22);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,321 @@
+/* ============================================
+   Navbar.css — Premium Glass Navbar
+============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ============================================
+   NAVBAR
+============================================ */
+
+.navbar{
+
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    display:grid;
+    grid-template-columns:220px 1fr 220px;
+
+    align-items:center;
+
+    width:100%;
+
+    height:70px;
+
+    padding:0 30px;
+
+    background:rgba(8,12,20,.92);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 6px 20px rgba(0,0,0,.35);
+
+}
+
+/* ============================================
+   LOGO (IMPROVED BRAND STYLE)
+============================================ */
+
+.logo{
+
+    justify-self:start;
+
+    display:flex;
+    align-items:center;
+
+    font-size:26px;
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+    user-select:none;
+
+    color:#ffffff;
+
+    gap:10px;
+
+    transition:.35s;
+
+}
+
+/* “X” badge logo element */
+.logo::after{
+
+    content:"X";
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:30px;
+    height:30px;
+
+    border-radius:10px;
+
+    font-size:16px;
+    font-weight:900;
+
+    color:#0b0f1a;
+
+    background:linear-gradient(135deg,#00d2ff,#4f8eff,#a855f7);
+
+    box-shadow:0 0 14px rgba(0,210,255,.35);
+
+    transform:rotate(-12deg);
+
+    margin-left:6px;
+
+}
+
+/* hover effect */
+.logo:hover{
+
+    transform:scale(1.05);
+
+    filter:drop-shadow(0 0 10px rgba(0,210,255,.4));
+
+}
+
+/* ============================================
+   NAVIGATION
+============================================ */
+
+.navbar-links{
+
+    justify-self:center;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    list-style:none;
+
+}
+
+/* Empty right side to balance logo */
+
+.navbar::after{
+    content:"";
+}
+
+/* ============================================
+   LINKS
+============================================ */
+
+.navbar-links li{
+    display:flex;
+}
+
+.navbar-links a{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:10px 18px;
+
+    color:#dbe6ff;
+
+    text-decoration:none;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    border-radius:12px;
+
+    transition:.35s;
+
+}
+
+/* Background Glow */
+.navbar-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(79,142,255,.18),
+        rgba(168,85,247,.18)
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
+    z-index:-2;
+
+}
+
+/* Animated Line */
+.navbar-links a::before{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:3px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00d2ff,
+        #4f8eff,
+        #a855f7
+    );
+
+    transition:.35s;
+
+}
+
+/* Hover */
+.navbar-links a:hover{
+
+    color:#fff;
+
+    transform:translateY(-4px);
+
+    text-shadow:0 0 12px #4f8eff;
+
+    box-shadow:0 10px 20px rgba(79,142,255,.18);
+
+}
+
+.navbar-links a:hover::before{
+    left:0;
+}
+
+.navbar-links a:hover::after{
+    opacity:1;
+}
+
+/* Active */
+.navbar-links a:active{
+    transform:scale(.96);
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media(max-width:1100px){
+
+.navbar{
+    grid-template-columns:180px 1fr 180px;
+    padding:0 20px;
+}
+
+.logo{
+    font-size:22px;
+}
+
+.navbar-links{
+    gap:8px;
+}
+
+.navbar-links a{
+    padding:9px 14px;
+    font-size:13px;
+}
+
+}
+
+@media(max-width:900px){
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    overflow-x:auto;
+}
+
+.logo{
+    margin-right:20px;
+    font-size:20px;
+    white-space:nowrap;
+}
+
+.navbar-links{
+    flex-wrap:nowrap;
+    gap:8px;
+}
+
+.navbar-links a{
+    white-space:nowrap;
+}
+
+}
+
+@media(max-width:600px){
+
+.navbar{
+    height:65px;
+}
+
+.logo{
+    font-size:18px;
+}
+
+.navbar-links a{
+    padding:8px 12px;
+    font-size:12px;
+}
+
+}

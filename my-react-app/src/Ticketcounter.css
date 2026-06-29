@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ================================
+   BACKGROUND (LIGHTER IMAGE)
+================================ */
+
+.ticket-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+
+    background-image: url("https://images.unsplash.com/photo-1520962880247-cfaf541c8724?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+/* DARK OVERLAY */
+.ticket-page::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.15);
+    z-index:0;
+}
+
+/* content above overlay */
+.ticket-page > *{
+    position: relative;
+    z-index:1;
+}
+
+/* ================================
+   CARD
+================================ */
+
+.ticket-card{
+    width:100%;
+    max-width:760px;
+    padding:45px;
+    border-radius:30px;
+
+    /* 🔥 MORE VISIBLE GLASS (OPTION 2 APPLIED) */
+    background: rgba(255,255,255,0.18);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border:1px solid rgba(255,255,255,0.25);
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.ticket-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.ticket-header h1{
+    color:#fff;
+}
+
+.ticket-header p{
+    color:#cfe6ff;
+}
+
+/* ================================
+   FORM
+================================ */
+
+.ticket-page form{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+/* ================================
+   INPUT GROUP
+================================ */
+
+.ticket-page .ticket-input-group{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.ticket-page .ticket-input-group label{
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:4px;
+}
+
+/* INPUT + SELECT */
+.ticket-page .ticket-input-group input,
+.ticket-page .ticket-input-group select{
+    height:52px;
+    padding:12px 14px;
+
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.15);
+
+    background:rgba(255,255,255,0.06);
+    color:#fff;
+
+    font-size:15px;
+
+    outline:none;
+}
+
+/* FOCUS */
+.ticket-page .ticket-input-group input:focus,
+.ticket-page .ticket-input-group select:focus{
+    border-color:#00d2ff;
+    box-shadow:0 0 12px rgba(0,210,255,0.25);
+}
+
+/* PLACEHOLDER */
+.ticket-page .ticket-input-group input::placeholder{
+    color:rgba(255,255,255,0.6);
+}
+
+/* SELECT FIX */
+.ticket-page .ticket-input-group select{
+    color:#000;
+    background:rgba(255,255,255,0.9);
+}
+
+/* OPTIONS */
+.ticket-page .ticket-input-group select option{
+    color:#000;
+    background:#fff;
+}
+
+/* ================================
+   ROW
+================================ */
+
+.ticket-row{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.button-group{
+    display:flex;
+    gap:14px;
+}
+
+.button-group button{
+    flex:1;
+    height:52px;
+    border:none;
+    border-radius:14px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.search-btn{
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    color:#fff;
+}
+
+.reset-btn{
+    background:linear-gradient(135deg,#ff6b6b,#ee0979);
+    color:#fff;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media(max-width:650px){
+    .ticket-row{
+        grid-template-columns:1fr;
+    }
+}
