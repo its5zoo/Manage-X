@@ -2,8 +2,11 @@
   "name": "jwd-backend-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "backend/server.js",
   "scripts": {
+    "start": "node backend/server.js",
+    "build": "npm run build --prefix my-react-app",
+    "postinstall": "npm install --prefix my-react-app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

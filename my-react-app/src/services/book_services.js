@@ -1,5 +1,5 @@
 import authApi from "./authApi";
-const API_URL= "http://localhost:5000";
+const API_URL= "";
 const API_POST_URL = API_URL+ "/book/create-book";
 const API_GET_ALL_BOOK_URL = API_URL+"/book/book-list";
 const API_GET_BY_ID_URL = API_URL+"/book/book-by";

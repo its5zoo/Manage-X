@@ -14,7 +14,7 @@ export const updateContact = (id, contact) =>axios.put(API_UPDATE_URL + '/' + id
 
 
 /*import axios from "axios"; */
-const API_URL= "http://localhost:5000";
+const API_URL= "";
 const API_POST_URL=API_URL+"/create";
 const API_GET_ALL_CONTACT_URL=API_URL+"/contact-list";
 const API_GET_BY_ID_URL=API_URL+"/find-by";
