@@ -19,7 +19,7 @@ import Courses from "./Courses";
 import Services from "./Services";
 
 import Ticketcounter from "./Ticketcounter";
-import SignUp from "./signup";
+import SignUp from "./SignUp";
 
 function App() {
   return (
