@@ -28,19 +28,19 @@ app.use((req, res, next) => {
 const mongoUrl = process.env.MONGO_URL || process.env.MONGODB_URI || process.env.MONGO_URI || process.env.DATABASE_URL;
 
 if (!mongoUrl) {
-    console.error("========================================================================");
-    console.error("ERROR: MongoDB connection URL is undefined!");
-    console.error("Please add the 'MONGO_URL' or 'MONGODB_URI' environment variable in your");
-    console.error("Railway dashboard settings under the Variables tab.");
-    console.error("========================================================================");
-    process.exit(1);
+    console.warn("========================================================================");
+    console.warn("WARNING: MongoDB connection URL is undefined!");
+    console.warn("Please add the 'MONGO_URL' or 'MONGODB_URI' environment variable in your");
+    console.warn("Railway dashboard settings under the Variables tab.");
+    console.warn("The server will start, but database operations will fail.");
+    console.warn("========================================================================");
+} else {
+    mongoose.connect(mongoUrl)
+    .then(()=>console.log("MongoDB Connected"))
+    .catch((err) => {
+        console.error("MongoDB Connection Failed:", err);
+    });
 }
-
-mongoose.connect(mongoUrl)
-.then(()=>console.log("MongoDB Connected"))
-.catch((err) => {
-    console.error("MongoDB Connection Failed:", err);
-});
 app.use('/',webRoutes);
 app.use('/book',bookRoutes);
 app.use("/api/auth",authRoutes);
