@@ -9,8 +9,8 @@ coverage/
 # Production build
 /dist
 /build
-my-react-app/dist
-my-react-app/build
+frontend/dist
+frontend/build
 
 # Local env files
 .env

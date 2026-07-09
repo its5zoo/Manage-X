@@ -15,12 +15,12 @@ app.use(cors());
 app.use(express.json());
 
 // Serve React static build files
-app.use(express.static(path.join(__dirname, "../my-react-app/dist")));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 // SPA Routing Fallback: Serve index.html for browser navigation requests
 app.use((req, res, next) => {
     if (req.method === 'GET' && req.accepts('html')) {
-        return res.sendFile(path.join(__dirname, "../my-react-app/dist/index.html"));
+        return res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
     }
     next();
 });
