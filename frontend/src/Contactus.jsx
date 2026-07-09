@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createContact } from "./services/contact_services";
 import { useNavigate } from "react-router-dom";
-import "./ContactUs.css";
+import "./contactus.css";
 
 const ContactUs = () => {
   const [name, setName] = useState("");
